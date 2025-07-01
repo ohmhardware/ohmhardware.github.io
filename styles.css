@@ -9,7 +9,6 @@
   --accent: #fff;
   --accent-fade: #f6f6f6;
   --button-radius: 2rem;
-  --box-shadow: 0 4px 32px 0 rgba(255,255,255,0.08);
   --transition: 0.4s cubic-bezier(.77,0,.175,1);
 }
 
@@ -40,9 +39,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  box-shadow: var(--box-shadow);
+  /* Removed box-shadow (the card glow) */
+  box-shadow: none;
   transition: box-shadow var(--transition);
 }
+
 
 header {
   margin-bottom: 64px;
