@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="dev-banner">
-    QuantaFlux Labs is in development. We expect to launch services in Q4, 2025.
+    QuantaFlux Labs is in development. We expect to launch in Q4, 2025.
   </div>
   <div class="container">
     <header>
@@ -44,5 +44,42 @@
       </section>
     </main>
   </div>
+  <svg style="display:none">
+    <!-- Liquid distortion -->
+    <filter id="liquid-distort">
+      <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" seed="2" result="turb"/>
+      <feDisplacementMap in2="turb" in="SourceGraphic" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- Chromatic aberration -->
+    <filter id="chromatic-aberration">
+      <!-- Split into RGB channels -->
+      <feComponentTransfer in="SourceGraphic" result="red">
+        <feFuncR type="identity"/>
+        <feFuncG type="table" tableValues="0 0"/>
+        <feFuncB type="table" tableValues="0 0"/>
+      </feComponentTransfer>
+      <feOffset in="red" dx="-1" dy="0" result="redOffset"/>
+      <feComponentTransfer in="SourceGraphic" result="green">
+        <feFuncR type="table" tableValues="0 0"/>
+        <feFuncG type="identity"/>
+        <feFuncB type="table" tableValues="0 0"/>
+      </feComponentTransfer>
+      <feOffset in="green" dx="0" dy="1" result="greenOffset"/>
+      <feComponentTransfer in="SourceGraphic" result="blue">
+        <feFuncR type="table" tableValues="0 0"/>
+        <feFuncG type="table" tableValues="0 0"/>
+        <feFuncB type="identity"/>
+      </feComponentTransfer>
+      <feOffset in="blue" dx="1" dy="0" result="blueOffset"/>
+      <!-- Merge the offsets -->
+      <feBlend in="redOffset" in2="greenOffset" mode="screen" result="rg"/>
+      <feBlend in="rg" in2="blueOffset" mode="screen" result="rgb"/>
+      <!-- Output -->
+      <feMerge>
+        <feMergeNode in="rgb"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </svg>
 </body>
 </html>
