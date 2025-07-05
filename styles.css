@@ -26,7 +26,7 @@ body {
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: 48px; /* Adjust for banner height */
+  padding-top: 3.2rem; /* Adjust to match .dev-banner height */
 }
 
 .container {
@@ -311,26 +311,26 @@ main {
 }
 
 .dev-banner {
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 2000;
   padding: 1rem 0;
   text-align: center;
   font-size: 0.85rem;
   font-weight: 500;
   color: #eaf6ff;
-  background: rgba(30, 80, 180, 0.18);
-  backdrop-filter: blur(4px) saturate(180%) contrast(120%) url('#liquid-distort') url('#chromatic-aberration');
-  -webkit-backdrop-filter: blur(4px) saturate(180%) contrast(120%);
-  border: 0.25px solid rgba(255,255,255,0.02);
-
+  background: rgba(60, 120, 255, 0.18); /* lighter, more blue glass */
+  backdrop-filter: blur(4px) saturate(220%) contrast(120%);
+  -webkit-backdrop-filter: blur(4px) saturate(220%) contrast(120%);
+  border: 0.5px solid rgba(255,255,255,0.04);
   box-shadow:
-    0 4px 24px 0 rgba(30, 80, 180, 0.12),
-    0 0 0 2px rgba(255,255,255,0.10) inset,
-    0 0 12px 2px rgba(0, 120, 255, 0.08) inset;
+    0 4px 24px 0 rgba(60, 120, 255, 0.10),
+    0 0 0 2px rgba(255,255,255,0.08) inset,
+    0 0 12px 2px rgba(60,120,255,0.06) inset;
   margin-bottom: 2rem;
   letter-spacing: 0.02em;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   background-clip: padding-box;
   overflow: hidden;
 }
@@ -344,18 +344,10 @@ main {
   border: 1px solid transparent;
   background: linear-gradient(
     120deg,
-    rgba(255,255,255,0.09) 0%,
-    rgba(0,120,255,0.04) 60%,
-    rgba(255,255,255,0.03) 100%
+    rgba(255,255,255,0.10) 0%,
+    rgba(60,120,255,0.03) 60%,
+    rgba(255,255,255,0.04) 100%
   );
-  opacity: 0.7;
+  opacity: 0.5;
   z-index: 1;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
 }
