@@ -45,7 +45,6 @@ body {
   transition: box-shadow var(--transition);
 }
 
-
 header {
   margin-bottom: 64px;
 }
@@ -181,61 +180,28 @@ main {
   letter-spacing: 0.01em;
 }
 .cta-btn {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-fade) 100%);
-  color: #181818;
-  border: none;
-  border-radius: var(--button-radius);
-  padding: 15px 48px;
-  font-size: 1.18rem;
-  font-weight: 700;
-  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0.4em 1em; /* Reduced side padding */
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1.5px solid rgba(60, 120, 255, 0.22);
+  background: rgba(60, 120, 255, 0.18); /* glassy blue */
+  color: #fff;
   box-shadow: none;
-  transition:
-    background var(--transition),
-    color var(--transition),
-    box-shadow var(--transition),
-    transform var(--transition),
-    filter var(--transition);
-  outline: none;
-  letter-spacing: 0.01em;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  filter: none;
+  backdrop-filter: blur(6px) saturate(220%) contrast(120%);
+  transition: box-shadow 0.3s, background 0.3s, border 0.3s;
+  display: inline-block;
 }
 
-.cta-btn:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle at 50% 50%, #fff7 0%, #fff0 80%);
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 0;
-  opacity: 0.7;
-  transition: transform .6s cubic-bezier(.77,0,.175,1);
+.cta-btn:hover, .cta-btn:focus {
+  background: rgba(42, 108, 255, 0.28);
+  border: 1.5px solid rgba(60, 120, 255, 0.32);
+  box-shadow: 0 0 72px 24px rgba(42, 108, 255, 0.28), 0 0 128px 48px rgba(42, 108, 255, 0.16);
+  text-decoration: none;
 }
 
-.cta-btn:hover:before, .cta-btn:focus:before, .cta-btn:active:before {
-  transform: translate(-50%, -50%) scale(1);
-}
-.cta-btn:hover, .cta-btn:focus, .cta-btn:active {
-  color: #000 !important;
-  background: linear-gradient(90deg, var(--accent-fade) 0%, var(--accent) 100%);
-  box-shadow:
-    0 0 64px 16px rgba(255,255,255,0.87),
-    0 6px 36px 0 rgba(255,255,255,0.33);
-  filter: drop-shadow(0 0 36px rgba(255,255,255,0.6));
-  transform: scale(1.09);
-}
-
-.cta-btn:active {
-  transform: scale(0.97);
-  box-shadow: 0 2px 8px 0 rgba(255,255,255,0.07);
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.15));
+.element {
+  margin-bottom: -10px;
 }
 
 /* Responsive (unchanged from last version) */
@@ -271,20 +237,60 @@ main {
     height: 60px;
   }
   .features {
+    flex-direction: column;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .feature {
+    margin: 0 !important;
+    padding: 0.1rem 0 !important;
+    border: none !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  .feature:not(:last-child) {
+    margin-bottom: 0.1rem !important;
+  }
+  .feature h3,
+  .feature p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .features {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 0; /* Remove flex gap */
+    padding: 0;
     margin-bottom: 50px;
+    flex-direction: column;
+    align-items: stretch;
   }
   .feature {
     max-width: none;
-    margin: 0;
-    padding: 18px 8px 14px 8px;
+    margin: 0; /* Remove margin */
+    padding: 0.2rem 0; /* Minimal vertical padding */
+    border: none; /* Remove border if any */
+  }
+  .feature:not(:last-child) {
+    margin-bottom: 0.2rem; /* Tiny space between features */
+  }
+  .feature h3,
+  .feature p {
+    margin: 0.1rem 0;
+  }
+  .titles {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
   }
   .cta h3 {
     font-size: 1.1rem;
   }
   .cta p {
     font-size: 0.97rem;
+  }
+  .logo {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
   }
 }
 @media (max-width: 400px) {
