@@ -357,3 +357,65 @@ main {
   opacity: 0.5;
   z-index: 1;
 }
+
+/* Add at the end of your CSS file */
+.timeline {
+  position: relative;
+  padding-left: 50px;
+}
+.timeline-segment {
+  position: relative;
+  left: 25px;
+  width: 4px;
+  height: 50px;
+  margin: 0 0 0 0;
+  background: #fff;
+  border-radius: 2px;
+  z-index: 0;
+  overflow: hidden;
+}
+.timeline-segment::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+  filter: blur(8px);
+  animation: glowMove 1.5s linear infinite;
+}
+@keyframes glowMove {
+  0% { top: -20px; opacity: 0; }
+  20% { opacity: 1; }
+  50% { top: 30px; opacity: 1; }
+  100% { top: 70px; opacity: 0; }
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 0;
+  z-index: 1;
+}
+.timeline-dot {
+  position: absolute;
+  left: -35px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px 2px #fff, 0 0 0 4px #eaf6ff;
+  animation: popDot 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes popDot {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.roadmap-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* optional: adds space between features */
+  align-items: flex-start; /* optional: aligns items to the left */
+}
