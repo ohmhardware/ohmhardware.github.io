@@ -181,7 +181,10 @@ main {
 }
 .cta-btn {
   font-size: 0.95rem;
-  padding: 0.4em 1em; /* Reduced side padding */
+  padding: 1.2em 2.5em;
+  font-size: 1.3em;
+  border-radius: 0.6em;
+  font-weight: 600;
   text-decoration: none;
   border-radius: 999px;
   border: 1.5px solid rgba(60, 120, 255, 0.22);
