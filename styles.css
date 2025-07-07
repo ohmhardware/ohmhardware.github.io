@@ -180,9 +180,8 @@ main {
   letter-spacing: 0.01em;
 }
 .cta-btn {
-  font-size: 0.95rem;
-  padding: 1.2em 2.5em;
-  font-size: 1.3em;
+  font-size: 1.1em;
+  padding: 0.85em 2em;
   border-radius: 0.6em;
   font-weight: 600;
   text-decoration: none;
